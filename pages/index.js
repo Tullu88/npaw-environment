@@ -81,12 +81,13 @@ const results = ( {galantisRecent, billieRecent, peaceSearch, adeleRecent} ) => 
                     It is in fact required to contain an 'id' or search word or 'term', which effectively prevents us to query
                     indiscriminately for all the top movies and podcasts.
                     To fix this issue, this functionality would have to be added by Apple.
-
-                    Additionally movies and podcasts cannot be queried concurrently, only one or the other can be queried with each api call. 
-                    The workaround, taking into consideration the comment I have made above, would be to query podcasts and movies seperately 
-                    then cross check the rating indexes to create the list requested. However, the indexRating is not visible within the json file and
-                    would need to be made available to do so.
-                </div>        
+                </div>
+                <div>
+                        Additionally movies and podcasts cannot be queried concurrently, only one or the other can be queried with each api call. 
+                        The workaround, taking into consideration the comment I have made above, would be to query podcasts and movies seperately 
+                        then cross check the rating indexes to create the list requested. However, the indexRating is not visible within the json response object and
+                        would need to be made available to do so.
+                </div>
             </div>
         </div>
     )

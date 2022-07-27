@@ -52,7 +52,7 @@ const results = ( {galantisRecent, billieRecent, peaceSearch, adeleRecent} ) => 
             </div>
             ))}
 
-            {/*  */}
+            {/* The above code is replicated here below for the rest of the query results */}
             <h1>Billie Eilish's Most recent songs</h1>
             {billieRecent.slice(0, 10).map((a, count) => (
                 <div key={count + 1}>
@@ -80,8 +80,12 @@ const results = ( {galantisRecent, billieRecent, peaceSearch, adeleRecent} ) => 
                     The apple Api is not wired to allow the initiation of a search query using only a media type and/or rating index.
                     It is in fact required to contain an 'id' or search word or 'term', which effectively prevents us to query
                     indiscriminately for all the top movies and podcasts.
-
                     To fix this issue, this functionality would have to be added by Apple.
+
+                    Additionally movies and podcasts cannot be queried concurrently, only one or the other can be queried with each api call. 
+                    The workaround, taking into consideration the comment I have made above, would be to query podcasts and movies seperately 
+                    then cross check the rating indexes to create the list requested. However, the indexRating is not visible within the json file and
+                    would need to be made available to do so.
                 </div>        
             </div>
         </div>

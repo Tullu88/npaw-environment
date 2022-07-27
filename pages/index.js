@@ -5,11 +5,11 @@ import styles from '../styles/Home.module.css'
 export const getStaticProps = async () => {
 
 
-    // Here I fetch info through the Apple api
-    // The api link 'id' parameters were manually acquired through the apple music website
+    // Here I fetch info through the Apple api using 'fetch'
+    // Note: The api link below's 'id' parameters were manually acquired through the apple music website
     const galantis = await fetch('https://itunes.apple.com/lookup?id=543322169&entity=song&limit=20&sort=recent');
 
-    // I convert the response to json
+    // Then the response above is converted the response to json here below
     const galantisData = await galantis.json();
 
     // Due to duplicate track names I created this function which I reused for the rest of the queries as a contingency
@@ -70,7 +70,7 @@ const results = ( {galantisRecent, billieRecent, peaceSearch, adeleRecent} ) => 
             <h1>Adele's Songs of 2021</h1>
             {adeleRecent.slice(0, 30).map((a, count) => (
                 <div key={count + 1}>
-                    {a.releaseDate.indexOf("2021") != -1 && <div>{count + 1}<b>Track Name:</b> {a.trackName} <b>Release Date:</b> {a.releaseDate.slice(0,4)} </div>}
+                    {a.releaseDate.indexOf("2021") != -1 && <div> {count + 1} <b>Track Name:</b> {a.trackName} <b>Release Date:</b> {a.releaseDate.slice(0,4)} </div>}
                 </div>
             ))}
 
@@ -78,7 +78,7 @@ const results = ( {galantisRecent, billieRecent, peaceSearch, adeleRecent} ) => 
             <div>
                 <div>
                     The apple Api is not wired to allow the initiation of a search query using only a media type and/or rating index.
-                    It is in fact required to contain an id or search word or 'term', which effectively prevents us to query
+                    It is in fact required to contain an 'id' or search word or 'term', which effectively prevents us to query
                     indiscriminately for all the top movies and podcasts.
 
                     To fix this issue, this functionality would have to be added by Apple.

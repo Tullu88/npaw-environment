@@ -1,15 +1,14 @@
 import getUniqueKeyValues from "../getUniqueValues";
-import styles from '../styles/Home.module.css'
 
 
 export const getStaticProps = async () => {
 
 
-    // Here I fetch info through the Apple api using 'fetch'
+    // Here I fetch info from the Apple api using 'fetch'
     // Note: The api link below's 'id' parameters were manually acquired through the apple music website
     const galantis = await fetch('https://itunes.apple.com/lookup?id=543322169&entity=song&limit=20&sort=recent');
 
-    // Then the response above is converted the response to json here below
+    // Then the response above is converted to json
     const galantisData = await galantis.json();
 
     // Due to duplicate track names I created this function which I reused for the rest of the queries as a contingency
